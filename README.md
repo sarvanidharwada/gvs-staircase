@@ -40,7 +40,17 @@ This script will run with sensible defaults, simulate a cohort of participants, 
 ![Threshold Recovery](figures/recovery.png)
 *A histogram comparing the empirically recovered threshold estimates against the known underlying true threshold.*
 
-The threshold recovery plot visually demonstrates the validity of the staircase procedure. By taking the mean of the final $k$ reversals for each participant, the distribution of estimations forms tightly around the true theoretical threshold (marked with a dashed line). The alignment between the true threshold and the mean estimate confirms that the adaptive design is unbiased, while the spread visualizes the variance inherent to the limited number of experimental trials.
+When running the default simulation with a 50-participant cohort (using a 2-down, 1-up staircase), we obtain an output profile similar to the following:
+
+```text
+Simulation Summary:
+True Threshold : 1.500 mA
+Mean Estimate  : 1.827 mA
+Standard Dev.  : 0.146 mA
+Bias           : +0.327 mA
+```
+
+The threshold recovery plot visually demonstrates the mechanics of the staircase procedure. In this example, we observe a consistent, deliberate tracking bias (roughly `+0.327 mA`) above the true 50% midpoint threshold. This occurs precisely because the 2-down, 1-up sequence converges precisely on the $\approx 70.7\%$ performance mark lying further up the logistic psychometric curve. This clearly illustrates the value of simulation: allowing researchers to accurately quantify intrinsic experimental biases prior to deploying clinical trials.
 
 ## References
 
